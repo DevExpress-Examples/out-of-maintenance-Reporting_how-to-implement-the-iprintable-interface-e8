@@ -49,6 +49,11 @@ namespace IPrintableImplementation {
             else if (areaName.Equals("Detail"))
                 CreateDetail();
         }
+
+        // Determines whether intersected bricks are created by this link.
+        bool IBasePrintable.CreatesIntersectedBricks {
+            get { return true; }
+        }
         #endregion #IBasePrintable
 
         #region #IPrintable
@@ -72,12 +77,7 @@ namespace IPrintableImplementation {
 
         // Invokes the help system for the Property editor. 
         void IPrintable.ShowHelp() {
-        }
-
-        // Determines whether intersected bricks are created by this link.
-        bool IPrintable.CreatesIntersectedBricks {
-            get { return true; }
-        }
+        }  
 
         // Applies all changes made by the Property Editor.
         void IPrintable.AcceptChanges() {
