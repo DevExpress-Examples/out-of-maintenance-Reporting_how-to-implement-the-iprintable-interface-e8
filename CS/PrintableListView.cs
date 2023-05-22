@@ -29,18 +29,18 @@ namespace IPrintableImplementation {
         }
 
         #region #IBasePrintable
-        void IBasePrintable.Initialize(IPrintingSystem ps, ILink link) {
+        void IBasePrintable.Initialize(PrintingSystemBase ps, LinkBase link) {
             this.ps = ps;
             imageList = (View == View.SmallIcon || View == View.List || View == View.Details)
                 ? SmallImageList : (View == View.LargeIcon) ? LargeImageList : null;
             offsetx = (imageList == null) ? 0 : imageList.ImageSize.Height;
         }
 
-        void IBasePrintable.Finalize(IPrintingSystem ps, ILink link) {
+        void IBasePrintable.Finalize(PrintingSystemBase ps, LinkBase link) {
         }
 
         // Constructs different bricks based on section type and information provided by the control.
-        void IBasePrintable.CreateArea(string areaName, IBrickGraphics graph) {
+        void IBasePrintable.CreateArea(string areaName, BrickGraphics graph) {
             this.graph = graph;
             if (areaName.Equals("PageFooter"))
                 CreatePageFooter();
